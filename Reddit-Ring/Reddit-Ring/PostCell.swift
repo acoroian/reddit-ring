@@ -28,13 +28,13 @@ class PostCell: UITableViewCell, Configurable {
     func configureWithModel(_ model: RedditModel) {
         self.model = model
 
-        title.text = model.data.title
-        author.text = model.data.author
-        comments.text = "Has \(model.data.numberOfComments) Comments"
-        date.text = "Created \(model.data.date.timeAgoDisplay())"
-        thumbnailImage.imageFromUrl(urlString: model.data.thumbnailUrl)
-        thumbnailWidth.constant = CGFloat(model.data.thumbnailWidth)
-        thumbnailHeight.constant = CGFloat(model.data.thumbnailHeight)
+        title.text = model.data?.title
+        author.text = model.data?.author
+        comments.text = "Has \(model.data?.numberOfComments ?? 0) Comments"
+        date.text = "Created \(model.data?.date.timeAgoDisplay() ?? "")"
+        thumbnailImage.imageFromUrl(urlString: model.data?.thumbnailUrl ?? "")
+        thumbnailWidth.constant = CGFloat(model.data?.thumbnailWidth ?? 0)
+        thumbnailHeight.constant = CGFloat(model.data?.thumbnailHeight ?? 0)
         
         let tapGesture = UITapGestureRecognizer(target: self, action: #selector(showFullScreenImage))
         thumbnailImage.addGestureRecognizer(tapGesture)

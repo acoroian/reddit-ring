@@ -11,14 +11,19 @@ import UIKit
 extension UIImageView {
     
     public func imageFromUrl(urlString: String) {
-        if let url = URL(string: urlString) {
+        if let url = URL(string: urlString)
+        {
+            if UIApplication.shared.canOpenURL(url) == false {
+                return
+            }
+            
             if let cachedImage = ImageCache.shared.cache.object(forKey: urlString as NSString) {
                 self.image = cachedImage
             } else {
                 let request = URLRequest(url: url)
                 URLSession.shared.dataTask(with: request, completionHandler: {(data, response, error) in
                     guard let data = data else {
-                        print(error?.localizedDescription)
+                        print("Image Download Error:", error?.localizedDescription)
                         return
                     }
                     

@@ -14,6 +14,6 @@ class ImageCache {
     let cache = NSCache<NSString, UIImage>()
     
     init() {
-        
+
     }
 }

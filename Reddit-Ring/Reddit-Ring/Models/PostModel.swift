@@ -8,7 +8,7 @@
 
 import UIKit
 
-class PostModel : NSObject, Codable {
+class PostModel : NSObject, Codable, NSCoding {
     let postId : String
     let title : String
     let author : String
@@ -43,15 +43,28 @@ class PostModel : NSObject, Codable {
         numberOfComments = try container.decode(Int.self, forKey: .numberOfComments)
     }
     
-    func encode(to encoder: Encoder) throws {
-        var container = encoder.container(keyedBy: CodingKeys.self)
-        try container.encode(postId, forKey: .postId)
-        try container.encode(title, forKey: .title)
-        try container.encode(author, forKey: .author)
-        try container.encode(url, forKey: .url)
-        try container.encode(thumbnailUrl, forKey: .thumbnailUrl)
-        try container.encode(thumbnailWidth, forKey: .thumbnailWidth)
-        try container.encode(thumbnailHeight, forKey: .thumbnailHeight)
-        try container.encode(numberOfComments, forKey: .numberOfComments)
+    func encode(with aCoder: NSCoder) {
+        aCoder.encode(postId, forKey: CodingKeys.postId.description)
+        aCoder.encode(title, forKey: CodingKeys.title.description)
+        aCoder.encode(author, forKey: CodingKeys.author.description)
+        aCoder.encode(date, forKey: CodingKeys.date.description)
+        aCoder.encode(url, forKey: CodingKeys.url.description)
+        aCoder.encode(thumbnailUrl, forKey: CodingKeys.thumbnailUrl.description)
+        aCoder.encode(thumbnailWidth, forKey: CodingKeys.thumbnailWidth.description)
+        aCoder.encode(thumbnailHeight, forKey: CodingKeys.thumbnailHeight.description)
+        aCoder.encode(numberOfComments, forKey: CodingKeys.numberOfComments.description)
+    }
+    
+    required init?(coder aDecoder: NSCoder) {
+        
+        postId = aDecoder.decodeObject(forKey: CodingKeys.postId.description) as? String ?? ""
+        title = aDecoder.decodeObject(forKey: CodingKeys.title.description) as? String ?? ""
+        author = aDecoder.decodeObject(forKey: CodingKeys.author.description) as? String ?? ""
+        date = aDecoder.decodeObject(forKey: CodingKeys.date.description) as? Date ?? Date()
+        url = aDecoder.decodeObject(forKey: CodingKeys.url.description) as? String ?? ""
+        thumbnailUrl = aDecoder.decodeObject(forKey: CodingKeys.thumbnailUrl.description) as? String ?? ""
+        thumbnailWidth = aDecoder.decodeInteger(forKey: CodingKeys.thumbnailWidth.description)
+        thumbnailHeight = aDecoder.decodeInteger(forKey: CodingKeys.thumbnailHeight.description)
+        numberOfComments = aDecoder.decodeInteger(forKey: CodingKeys.numberOfComments.description)
     }
 }

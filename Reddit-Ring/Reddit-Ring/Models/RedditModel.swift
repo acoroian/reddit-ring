@@ -8,8 +8,9 @@
 
 import UIKit
 
-class RedditModel : NSObject, Codable {
-    let data : PostModel
+class RedditModel : NSObject, Codable, NSCoding {
+
+    let data : PostModel?
     
     private enum CodingKeys: String, CodingKey {
         case data
@@ -20,9 +21,12 @@ class RedditModel : NSObject, Codable {
         data = try values.decode(PostModel.self, forKey: .data)
     }
     
-    func encode(to encoder: Encoder) throws {
-        var container = encoder.container(keyedBy: CodingKeys.self)
-        try container.encode(data, forKey: .data)
+    func encode(with aCoder: NSCoder) {
+        aCoder.encode(data, forKey: CodingKeys.data.description)
+    }
+    
+    required init?(coder aDecoder: NSCoder) {
+        data = aDecoder.decodeObject(forKey: CodingKeys.data.description) as? PostModel
     }
 }
 
