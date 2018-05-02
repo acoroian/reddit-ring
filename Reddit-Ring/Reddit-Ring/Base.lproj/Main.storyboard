@@ -153,13 +153,7 @@
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="g5a-9o-a1m"/>
                     </view>
-                    <navigationItem key="navigationItem" title="Full Image" id="obw-qi-MRR">
-                        <barButtonItem key="rightBarButtonItem" title="Save to Gallery" style="plain" id="0bX-wK-rtw">
-                            <connections>
-                                <action selector="save" destination="Lco-BB-nYM" id="vA4-tK-fzu"/>
-                            </connections>
-                        </barButtonItem>
-                    </navigationItem>
+                    <navigationItem key="navigationItem" title="Full Image" id="obw-qi-MRR"/>
                     <connections>
                         <outlet property="webView" destination="bxs-e5-sep" id="mol-Ts-hri"/>
                     </connections>
