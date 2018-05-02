@@ -16,8 +16,10 @@ class RedditViewModel {
     
     let sourceUrl = URL(string: "https://www.reddit.com/top.json")
     
-    let redditPosts : [RedditModel] = []
+    var redditPosts : [RedditModel] = []
     var nextDataId : String?
+    
+    var dataUpdated : (() -> Void)?
     
     init() {
         getReddit()
@@ -57,7 +59,10 @@ class RedditViewModel {
                         throw JSONError.ConversionFailed
                     }
 
-                    print(redditPosts)
+                    DispatchQueue.main.async {
+                        self.redditPosts = redditPosts
+                        self.dataUpdated?()
+                    }
                 } catch let error as JSONError {
                     print(error.rawValue)
                 } catch let error as NSError {

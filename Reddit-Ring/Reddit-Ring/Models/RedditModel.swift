@@ -6,7 +6,7 @@
 //  Copyright © 2018 Adrian Coroian. All rights reserved.
 //
 
-import Foundation
+import UIKit
 
 class RedditModel : Decodable {
     let data : PostModel
@@ -18,5 +18,17 @@ class RedditModel : Decodable {
     required init(from decoder:Decoder) throws {
         let values = try decoder.container(keyedBy: CodingKeys.self)
         data = try values.decode(PostModel.self, forKey: .data)
+    }
+}
+
+extension RedditModel : TableViewCompatible {
+    var reuseIdentifier: String {
+        return "PostCellIdentifier"
+    }
+    
+    func cellForTableView(tableView: UITableView, atIndexPath indexPath: IndexPath) -> UITableViewCell {
+        let cell = tableView.dequeueReusableCell(withIdentifier: self.reuseIdentifier, for: indexPath) as! PostCell
+        cell.configureWithModel(self)
+        return cell
     }
 }

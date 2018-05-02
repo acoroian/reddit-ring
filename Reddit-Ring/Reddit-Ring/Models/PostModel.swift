@@ -6,7 +6,7 @@
 //  Copyright © 2018 Adrian Coroian. All rights reserved.
 //
 
-import Foundation
+import UIKit
 
 class PostModel : Decodable {
     let title : String

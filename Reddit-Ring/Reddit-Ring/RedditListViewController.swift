@@ -15,6 +15,12 @@ class RedditListViewController: UITableViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view, typically from a nib.
+        
+        viewModel.dataUpdated = {
+            (self.tableView.dataSource as! TableViewDataSource).data = []
+            (self.tableView.dataSource as! TableViewDataSource).data.append(self.viewModel.redditPosts)
+            self.tableView.reloadData()
+        }
     }
 
     override func didReceiveMemoryWarning() {
