@@ -35,4 +35,15 @@ class FullScreenImageViewController : UIViewController {
             present(ac, animated: true)
         }
     }
+    
+    override func encodeRestorableState(with coder: NSCoder) {
+        coder.encode(photoUrl, forKey: "photoUrl")
+        super.encodeRestorableState(with: coder)
+    }
+    
+    override func decodeRestorableState(with coder: NSCoder) {
+        photoUrl = coder.decodeObject(forKey: "photoUrl") as? String ?? ""
+        self.imageView.imageFromUrl(urlString: photoUrl)
+        super.decodeRestorableState(with: coder)
+    }
 }

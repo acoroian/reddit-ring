@@ -8,7 +8,8 @@
 
 import UIKit
 
-class PostModel : Decodable {
+class PostModel : NSObject, Codable {
+    let postId : String
     let title : String
     let author : String
     let date : Date
@@ -19,11 +20,12 @@ class PostModel : Decodable {
     let numberOfComments : Int
     
     private enum CodingKeys: String, CodingKey {
-        case title, author, date = "created_utc", url, thumbnailUrl = "thumbnail", thumbnailWidth = "thumbnail_width", thumbnailHeight = "thumbnail_height", numberOfComments = "num_comments"
+        case postId = "subreddit_id", title, author, date = "created_utc", url, thumbnailUrl = "thumbnail", thumbnailWidth = "thumbnail_width", thumbnailHeight = "thumbnail_height", numberOfComments = "num_comments"
     }
     
     required init(from decoder: Decoder) throws {
         let container = try decoder.container(keyedBy: CodingKeys.self)
+        postId = try container.decode(String.self, forKey: .postId)
         title = try container.decode(String.self, forKey: .title)
         author = try container.decode(String.self, forKey: .author)
         let timeInterval = (try container.decode(Double.self, forKey: .date))
@@ -39,5 +41,17 @@ class PostModel : Decodable {
         } else { self.thumbnailHeight = 0 }
         
         numberOfComments = try container.decode(Int.self, forKey: .numberOfComments)
+    }
+    
+    func encode(to encoder: Encoder) throws {
+        var container = encoder.container(keyedBy: CodingKeys.self)
+        try container.encode(postId, forKey: .postId)
+        try container.encode(title, forKey: .title)
+        try container.encode(author, forKey: .author)
+        try container.encode(url, forKey: .url)
+        try container.encode(thumbnailUrl, forKey: .thumbnailUrl)
+        try container.encode(thumbnailWidth, forKey: .thumbnailWidth)
+        try container.encode(thumbnailHeight, forKey: .thumbnailHeight)
+        try container.encode(numberOfComments, forKey: .numberOfComments)
     }
 }

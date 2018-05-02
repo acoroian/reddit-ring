@@ -13,7 +13,7 @@
         <!--Navigation Controller-->
         <scene sceneID="mca-EQ-sHO">
             <objects>
-                <navigationController id="8yz-8q-DCl" sceneMemberID="viewController">
+                <navigationController storyboardIdentifier="NavigationController" useStoryboardIdentifierAsRestorationIdentifier="YES" id="8yz-8q-DCl" sceneMemberID="viewController">
                     <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="RTL-Jj-oMX">
                         <rect key="frame" x="0.0" y="20" width="375" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
@@ -29,7 +29,7 @@
         <!--Reddit List View Controller-->
         <scene sceneID="V7F-hN-WBp">
             <objects>
-                <tableViewController id="9gW-ig-rP0" customClass="RedditListViewController" customModule="Reddit_Ring" customModuleProvider="target" sceneMemberID="viewController">
+                <tableViewController storyboardIdentifier="RedditListViewController" useStoryboardIdentifierAsRestorationIdentifier="YES" id="9gW-ig-rP0" customClass="RedditListViewController" customModule="Reddit_Ring" customModuleProvider="target" sceneMemberID="viewController">
                     <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" id="Mdq-m1-iP4">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -130,7 +130,7 @@
         <scene sceneID="0MF-ok-B7U">
             <objects>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Aa3-FG-8Cb" userLabel="First Responder" sceneMemberID="firstResponder"/>
-                <viewController id="Lco-BB-nYM" customClass="FullScreenImageViewController" customModule="Reddit_Ring" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="FullScreenImageViewController" useStoryboardIdentifierAsRestorationIdentifier="YES" id="Lco-BB-nYM" customClass="FullScreenImageViewController" customModule="Reddit_Ring" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="AfO-9A-h7f">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
