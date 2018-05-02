@@ -23,6 +23,7 @@
 		3A56952220995FFE00789084 /* DateExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3A56952120995FFE00789084 /* DateExtension.swift */; };
 		3A5695292099652F00789084 /* ImageViewExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3A5695282099652F00789084 /* ImageViewExtension.swift */; };
 		3AE9753F20996D0A00A9826F /* ImageCache.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3AE9753E20996D0A00A9826F /* ImageCache.swift */; };
+		3AE9754120997B6F00A9826F /* FullScreenImageViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3AE9754020997B6F00A9826F /* FullScreenImageViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -44,6 +45,7 @@
 		3A56952120995FFE00789084 /* DateExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DateExtension.swift; sourceTree = "<group>"; };
 		3A5695282099652F00789084 /* ImageViewExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageViewExtension.swift; sourceTree = "<group>"; };
 		3AE9753E20996D0A00A9826F /* ImageCache.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageCache.swift; sourceTree = "<group>"; };
+		3AE9754020997B6F00A9826F /* FullScreenImageViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FullScreenImageViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -81,8 +83,9 @@
 				3A56950820993DE700789084 /* TableUtils */,
 				3A5695132099452800789084 /* Models */,
 				3A5695242099627B00789084 /* ViewModels */,
-				3A5694F82099389C00789084 /* RedditListViewController.swift */,
 				3A56951F20995D8100789084 /* PostCell.swift */,
+				3A5694F82099389C00789084 /* RedditListViewController.swift */,
+				3AE9754020997B6F00A9826F /* FullScreenImageViewController.swift */,
 				3A5694FA2099389D00789084 /* Main.storyboard */,
 				3A5694FD209938A200789084 /* Assets.xcassets */,
 				3A5694FF209938A200789084 /* LaunchScreen.storyboard */,
@@ -204,6 +207,7 @@
 				3AE9753F20996D0A00A9826F /* ImageCache.swift in Sources */,
 				3A56951E209957C700789084 /* PostModel.swift in Sources */,
 				3A5694F92099389D00789084 /* RedditListViewController.swift in Sources */,
+				3AE9754120997B6F00A9826F /* FullScreenImageViewController.swift in Sources */,
 				3A56950D20993DFD00789084 /* TableViewDelegate.swift in Sources */,
 				3A56950E20993DFD00789084 /* TableViewDataSource.swift in Sources */,
 				3A5695292099652F00789084 /* ImageViewExtension.swift in Sources */,

@@ -18,6 +18,7 @@ extension UIImageView {
                 let request = URLRequest(url: url)
                 URLSession.shared.dataTask(with: request, completionHandler: {(data, response, error) in
                     guard let data = data else { return }
+                    
                     DispatchQueue.main.async {
                         self.image = UIImage(data: data)
                         guard let savedImage = self.image else { return }

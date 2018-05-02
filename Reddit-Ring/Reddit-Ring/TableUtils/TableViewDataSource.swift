@@ -11,6 +11,7 @@ import UIKit
 class TableViewDataSource: NSObject, UITableViewDataSource {
     
     var data = [[TableViewCompatible]]()
+    
     func numberOfSections(in tableView: UITableView) -> Int {
         return data.count
     }

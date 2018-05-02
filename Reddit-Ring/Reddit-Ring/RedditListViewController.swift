@@ -14,10 +14,13 @@ class RedditListViewController: UITableViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        // Do any additional setup after loading the view, typically from a nib.
         
         (self.tableView.delegate as! TableViewDelegate).shouldLoadMore = { index in
             self.viewModel.shouldLoadMore(currentIndex: index)
+        }
+        
+        (self.tableView.delegate as! TableViewDelegate).selectedCell = { index in
+            self.tableView.deselectRow(at: IndexPath(row: index, section: 0), animated: true)
         }
         
         viewModel.dataUpdated = {
@@ -32,6 +35,9 @@ class RedditListViewController: UITableViewController {
         // Dispose of any resources that can be recreated.
     }
 
+    func loadImageFullScreen(notification: NSNotification) {
+        self.performSegue(withIdentifier: "showImage", sender: self)
+    }
     
 }
 

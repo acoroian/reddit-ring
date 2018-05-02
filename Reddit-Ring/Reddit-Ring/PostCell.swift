@@ -11,6 +11,9 @@ import UIKit
 class PostCell: UITableViewCell, Configurable {
     var model: RedditModel?
     
+    @IBOutlet weak var thumbnailWidth: NSLayoutConstraint!
+    @IBOutlet weak var thumbnailHeight: NSLayoutConstraint!
+    
     @IBOutlet weak var thumbnailImage : UIImageView!
     @IBOutlet weak var title : UILabel!
     @IBOutlet weak var author : UILabel!
@@ -22,9 +25,11 @@ class PostCell: UITableViewCell, Configurable {
 
         title.text = model.data.title
         author.text = model.data.author
-        comments.text = String(model.data.numberOfComments)
-        date.text = model.data.date.timeAgoDisplay()
+        comments.text = "Has \(model.data.numberOfComments) Comments"
+        date.text = "Created \(model.data.date.timeAgoDisplay())"
         thumbnailImage.imageFromUrl(urlString: model.data.thumbnailUrl)
+        thumbnailWidth.constant = CGFloat(model.data.thumbnailWidth)
+        thumbnailHeight.constant = CGFloat(model.data.thumbnailHeight)
     }
     
     
