@@ -12,13 +12,14 @@ class PostModel : Decodable {
     let title : String
     let author : String
     let date : Date
+    let url : String
     let thumbnailUrl : String
     let thumbnailWidth : Int
     let thumbnailHeight : Int
     let numberOfComments : Int
     
     private enum CodingKeys: String, CodingKey {
-        case title, author, date = "created_utc", thumbnailUrl = "thumbnail", thumbnailWidth = "thumbnail_width", thumbnailHeight = "thumbnail_height", numberOfComments = "num_comments"
+        case title, author, date = "created_utc", url, thumbnailUrl = "thumbnail", thumbnailWidth = "thumbnail_width", thumbnailHeight = "thumbnail_height", numberOfComments = "num_comments"
     }
     
     required init(from decoder: Decoder) throws {
@@ -28,6 +29,7 @@ class PostModel : Decodable {
         let timeInterval = (try container.decode(Double.self, forKey: .date))
         date = Date(timeIntervalSince1970: timeInterval)
         
+        url = try container.decode(String.self, forKey: .url)
         thumbnailUrl = try container.decode(String.self, forKey: .thumbnailUrl)
         if let thumbnailWidth = try? container.decode(Int.self, forKey: .thumbnailWidth) {
             self.thumbnailWidth = thumbnailWidth

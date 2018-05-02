@@ -91,17 +91,21 @@
                             <outlet property="delegate" destination="PA1-bp-ZL3" id="Wkc-x2-B3n"/>
                         </connections>
                     </tableView>
+                    <connections>
+                        <segue destination="Lco-BB-nYM" kind="presentation" identifier="toPhoto" id="C2k-QO-EcR"/>
+                    </connections>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="BFU-7B-hFX" userLabel="First Responder" sceneMemberID="firstResponder"/>
                 <customObject id="sLa-GA-94U" customClass="TableViewDataSource" customModule="Reddit_Ring" customModuleProvider="target"/>
                 <customObject id="PA1-bp-ZL3" customClass="TableViewDelegate" customModule="Reddit_Ring" customModuleProvider="target"/>
             </objects>
-            <point key="canvasLocation" x="330" y="-12"/>
+            <point key="canvasLocation" x="404" y="138"/>
         </scene>
         <!--Full Screen Image View Controller-->
         <scene sceneID="0MF-ok-B7U">
             <objects>
-                <viewController id="Lco-BB-nYM" customClass="FullScreenImageViewController" sceneMemberID="viewController">
+                <placeholder placeholderIdentifier="IBFirstResponder" id="Aa3-FG-8Cb" userLabel="First Responder" sceneMemberID="firstResponder"/>
+                <viewController id="Lco-BB-nYM" customClass="FullScreenImageViewController" customModule="Reddit_Ring" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="AfO-9A-h7f">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -119,6 +123,9 @@
                                 <state key="normal" title="Back">
                                     <color key="titleColor" red="1" green="0.96116357109999995" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                 </state>
+                                <connections>
+                                    <action selector="close" destination="Lco-BB-nYM" eventType="touchUpInside" id="Lvp-9S-zav"/>
+                                </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="77o-Yw-i1G">
                                 <rect key="frame" x="247" y="30" width="118" height="59"/>
@@ -130,6 +137,9 @@
                                 <state key="normal" title="Save">
                                     <color key="titleColor" red="1" green="0.96116357109999995" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                 </state>
+                                <connections>
+                                    <action selector="save" destination="Lco-BB-nYM" eventType="touchUpInside" id="nLx-uw-QDu"/>
+                                </connections>
                             </button>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
@@ -146,14 +156,11 @@
                         <viewLayoutGuide key="safeArea" id="g5a-9o-a1m"/>
                     </view>
                     <connections>
-                        <outlet property="close" destination="kpg-90-R4W" id="fp8-7s-NYr"/>
                         <outlet property="imageView" destination="Rc1-Ho-cja" id="4Vl-Yz-Kt0"/>
-                        <outlet property="save" destination="77o-Yw-i1G" id="Zt0-VI-Txc"/>
                     </connections>
                 </viewController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="Aa3-FG-8Cb" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1164" y="-12.143928035982009"/>
+            <point key="canvasLocation" x="1318" y="165"/>
         </scene>
     </scenes>
 </document>

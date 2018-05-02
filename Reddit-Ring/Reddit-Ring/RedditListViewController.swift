@@ -11,6 +11,7 @@ import UIKit
 class RedditListViewController: UITableViewController {
 
     let viewModel = RedditViewModel()
+    var currentSelectedImage : String = ""
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -34,10 +35,26 @@ class RedditListViewController: UITableViewController {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
     }
-
-    func loadImageFullScreen(notification: NSNotification) {
-        self.performSegue(withIdentifier: "showImage", sender: self)
+    
+    
+    @objc func tapEdit(recognizer: UITapGestureRecognizer)  {
+        if recognizer.state == UIGestureRecognizerState.ended {
+            
+            if let imageView = recognizer.view as? UIImageView {
+                if imageView.tag < 0 { return }
+                let cellModel = self.viewModel.redditPosts[imageView.tag]
+                self.currentSelectedImage = cellModel.data.url
+                self.performSegue(withIdentifier: "toPhoto", sender: self)
+            }
+        }
     }
     
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        if segue.identifier == "toPhoto" {
+            if let destinationVC = segue.destination as? FullScreenImageViewController {
+                destinationVC.photoUrl = self.currentSelectedImage
+            }
+        }
+    }
 }
 
