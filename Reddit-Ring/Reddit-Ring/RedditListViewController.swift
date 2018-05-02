@@ -29,7 +29,7 @@ class RedditListViewController: UITableViewController {
             if let cell = cell as? PostCell  {
                 cell.thumbnailImage.tag = indexPath.row
                 cell.cellImageSelected = { index in
-                    self.currentSelectedImage = self.viewModel.redditPosts[index].data.url
+                    self.currentSelectedImage = self.viewModel.redditPosts[index].data?.url ?? ""
                     self.performSegue(withIdentifier: "toPhoto", sender: self)
                 }
             }
@@ -54,4 +54,36 @@ class RedditListViewController: UITableViewController {
             }
         }
     }
+    
+    override func encodeRestorableState(with coder: NSCoder) {
+        coder.encode(viewModel.redditPosts, forKey: "posts")
+        coder.encode(viewModel.nextDataId, forKey: "nextDataId")
+
+        super.encodeRestorableState(with: coder)
+    }
+
+    override func decodeRestorableState(with coder: NSCoder) {
+        viewModel.redditPosts = coder.decodeObject(forKey: "posts") as? [RedditModel] ?? []
+        viewModel.nextDataId = coder.decodeObject(forKey: "nextDataId") as? String
+
+        self.tableView.reloadData()
+        super.decodeRestorableState(with: coder)
+    }
 }
+
+extension RedditListViewController : UIDataSourceModelAssociation {
+    func modelIdentifierForElement(at idx: IndexPath, in view: UIView) -> String? {
+       return self.viewModel.redditPosts[idx.row].data?.postId
+    }
+    
+    func indexPathForElement(withModelIdentifier identifier: String, in view: UIView) -> IndexPath? {
+        let postsFiltered = self.viewModel.redditPosts.filter { $0.data?.postId == identifier }
+        if let filteredItem = postsFiltered.first {
+            let index = self.viewModel.redditPosts.index(of: filteredItem) ?? 0
+            return IndexPath(row: index, section: 0)
+        }
+        
+        return IndexPath(row: 0, section: 0)
+    }
+}
+

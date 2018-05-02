@@ -15,10 +15,11 @@ extension UIImageView {
             if let cachedImage = ImageCache.shared.cache.object(forKey: urlString as NSString) {
                 self.image = cachedImage
             } else {
+                print(url)
                 let request = URLRequest(url: url)
                 URLSession.shared.dataTask(with: request, completionHandler: {(data, response, error) in
                     guard let data = data else {
-                        print(error?.localizedDescription)
+                        print("Image Download Error:", error?.localizedDescription)
                         return
                     }
                     
