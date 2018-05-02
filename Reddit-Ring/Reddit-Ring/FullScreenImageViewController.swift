@@ -7,16 +7,18 @@
 //
 
 import UIKit
+import WebKit
 
 class FullScreenImageViewController : UIViewController {
-    @IBOutlet weak var imageView : UIImageView!
-
+    @IBOutlet weak var webView: WKWebView!
     public var photoUrl = ""
 
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        self.imageView.imageFromUrl(urlString: photoUrl)
+        if let url = URL(string: photoUrl) {
+            webView.load(URLRequest(url: url))
+        }
     }
     
     @IBAction func save() {
@@ -43,7 +45,10 @@ class FullScreenImageViewController : UIViewController {
     
     override func decodeRestorableState(with coder: NSCoder) {
         photoUrl = coder.decodeObject(forKey: "photoUrl") as? String ?? ""
-        self.imageView.imageFromUrl(urlString: photoUrl)
+        
+        if let url = URL(string: photoUrl) {
+            webView.load(URLRequest(url: url))
+        }
         super.decodeRestorableState(with: coder)
     }
 }

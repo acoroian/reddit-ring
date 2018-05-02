@@ -135,16 +135,21 @@
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="Rc1-Ho-cja">
+                            <wkWebView contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="bxs-e5-sep">
                                 <rect key="frame" x="0.0" y="64" width="375" height="603"/>
-                            </imageView>
+                                <color key="backgroundColor" red="0.36078431370000003" green="0.38823529410000002" blue="0.4039215686" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <wkWebViewConfiguration key="configuration">
+                                    <audiovisualMediaTypes key="mediaTypesRequiringUserActionForPlayback" none="YES"/>
+                                    <wkPreferences key="preferences"/>
+                                </wkWebViewConfiguration>
+                            </wkWebView>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <constraints>
-                            <constraint firstItem="Rc1-Ho-cja" firstAttribute="top" secondItem="g5a-9o-a1m" secondAttribute="top" id="15w-5s-ckf"/>
-                            <constraint firstItem="g5a-9o-a1m" firstAttribute="bottom" secondItem="Rc1-Ho-cja" secondAttribute="bottom" id="NQw-5D-8bQ"/>
-                            <constraint firstItem="g5a-9o-a1m" firstAttribute="trailing" secondItem="Rc1-Ho-cja" secondAttribute="trailing" id="Sct-XR-EdO"/>
-                            <constraint firstItem="Rc1-Ho-cja" firstAttribute="leading" secondItem="g5a-9o-a1m" secondAttribute="leading" id="mj0-Qh-uuX"/>
+                            <constraint firstItem="bxs-e5-sep" firstAttribute="leading" secondItem="g5a-9o-a1m" secondAttribute="leading" id="Cag-iY-QRR"/>
+                            <constraint firstItem="g5a-9o-a1m" firstAttribute="bottom" secondItem="bxs-e5-sep" secondAttribute="bottom" id="ZPD-Ff-nhw"/>
+                            <constraint firstItem="g5a-9o-a1m" firstAttribute="trailing" secondItem="bxs-e5-sep" secondAttribute="trailing" id="kK4-Tu-JAJ"/>
+                            <constraint firstItem="bxs-e5-sep" firstAttribute="top" secondItem="g5a-9o-a1m" secondAttribute="top" id="kma-f1-ccd"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="g5a-9o-a1m"/>
                     </view>
@@ -156,7 +161,7 @@
                         </barButtonItem>
                     </navigationItem>
                     <connections>
-                        <outlet property="imageView" destination="Rc1-Ho-cja" id="4Vl-Yz-Kt0"/>
+                        <outlet property="webView" destination="bxs-e5-sep" id="mol-Ts-hri"/>
                     </connections>
                 </viewController>
             </objects>

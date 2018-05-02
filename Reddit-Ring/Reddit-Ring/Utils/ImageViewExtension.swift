@@ -30,7 +30,6 @@ extension UIImageView {
                     
                     DispatchQueue.main.async {
                         self.image = UIImage(data: data)
-
                         guard let savedImage = self.image else { return }
                         ImageCache.shared.cache.setObject(savedImage, forKey: urlString as NSString)
                     }
