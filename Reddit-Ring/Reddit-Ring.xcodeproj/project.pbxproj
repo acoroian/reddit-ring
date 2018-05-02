@@ -22,6 +22,7 @@
 		3A56952020995D8100789084 /* PostCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3A56951F20995D8100789084 /* PostCell.swift */; };
 		3A56952220995FFE00789084 /* DateExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3A56952120995FFE00789084 /* DateExtension.swift */; };
 		3A5695292099652F00789084 /* ImageViewExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3A5695282099652F00789084 /* ImageViewExtension.swift */; };
+		3AE9753F20996D0A00A9826F /* ImageCache.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3AE9753E20996D0A00A9826F /* ImageCache.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -42,6 +43,7 @@
 		3A56951F20995D8100789084 /* PostCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PostCell.swift; sourceTree = "<group>"; };
 		3A56952120995FFE00789084 /* DateExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DateExtension.swift; sourceTree = "<group>"; };
 		3A5695282099652F00789084 /* ImageViewExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageViewExtension.swift; sourceTree = "<group>"; };
+		3AE9753E20996D0A00A9826F /* ImageCache.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageCache.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -114,6 +116,7 @@
 			children = (
 				3A56952120995FFE00789084 /* DateExtension.swift */,
 				3A5695282099652F00789084 /* ImageViewExtension.swift */,
+				3AE9753E20996D0A00A9826F /* ImageCache.swift */,
 			);
 			path = Utils;
 			sourceTree = "<group>";
@@ -198,6 +201,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				3A56951020993DFD00789084 /* Configurable.swift in Sources */,
+				3AE9753F20996D0A00A9826F /* ImageCache.swift in Sources */,
 				3A56951E209957C700789084 /* PostModel.swift in Sources */,
 				3A5694F92099389D00789084 /* RedditListViewController.swift in Sources */,
 				3A56950D20993DFD00789084 /* TableViewDelegate.swift in Sources */,

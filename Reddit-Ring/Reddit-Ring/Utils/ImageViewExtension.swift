@@ -9,13 +9,22 @@
 import UIKit
 
 extension UIImageView {
+    
     public func imageFromUrl(urlString: String) {
         if let url = URL(string: urlString) {
-            let request = URLRequest(url: url)
-            URLSession.shared.dataTask(with: request, completionHandler: {(data, response, error) in
-                guard let data = data else { return }
-                self.image = UIImage(data: data)
-            }).resume()
+            if let cachedImage = ImageCache.shared.cache.object(forKey: urlString as NSString) {
+                self.image = cachedImage
+            } else {
+                let request = URLRequest(url: url)
+                URLSession.shared.dataTask(with: request, completionHandler: {(data, response, error) in
+                    guard let data = data else { return }
+                    DispatchQueue.main.async {
+                        self.image = UIImage(data: data)
+                        guard let savedImage = self.image else { return }
+                        ImageCache.shared.cache.setObject(savedImage, forKey: urlString as NSString)
+                    }
+                }).resume()
+            }
         }
     }
 }
