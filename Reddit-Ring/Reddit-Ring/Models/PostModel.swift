@@ -26,7 +26,7 @@ class PostModel : Decodable {
         let timeInterval = (try container.decode(Double.self, forKey: .date))
         date = Date(timeIntervalSince1970: timeInterval)
         
-        thumbnailUrl = try container.decode(String.self, forKey: .author)
+        thumbnailUrl = try container.decode(String.self, forKey: .thumbnailUrl)
         numberOfComments = try container.decode(Int.self, forKey: .numberOfComments)
     }
 }

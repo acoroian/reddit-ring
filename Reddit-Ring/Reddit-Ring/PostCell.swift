@@ -20,12 +20,11 @@ class PostCell: UITableViewCell, Configurable {
     func configureWithModel(_ model: RedditModel) {
         self.model = model
 
-        //TODO DRAW EVERYTHING
-        
         title.text = model.data.title
         author.text = model.data.author
         comments.text = String(model.data.numberOfComments)
         date.text = model.data.date.timeAgoDisplay()
+        thumbnailImage.imageFromUrl(urlString: model.data.thumbnailUrl)
     }
     
     

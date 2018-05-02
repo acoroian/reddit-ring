@@ -21,6 +21,7 @@
 		3A56951E209957C700789084 /* PostModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3A56951D209957C700789084 /* PostModel.swift */; };
 		3A56952020995D8100789084 /* PostCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3A56951F20995D8100789084 /* PostCell.swift */; };
 		3A56952220995FFE00789084 /* DateExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3A56952120995FFE00789084 /* DateExtension.swift */; };
+		3A5695292099652F00789084 /* ImageViewExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3A5695282099652F00789084 /* ImageViewExtension.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -40,6 +41,7 @@
 		3A56951D209957C700789084 /* PostModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PostModel.swift; sourceTree = "<group>"; };
 		3A56951F20995D8100789084 /* PostCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PostCell.swift; sourceTree = "<group>"; };
 		3A56952120995FFE00789084 /* DateExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DateExtension.swift; sourceTree = "<group>"; };
+		3A5695282099652F00789084 /* ImageViewExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageViewExtension.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -111,6 +113,7 @@
 			isa = PBXGroup;
 			children = (
 				3A56952120995FFE00789084 /* DateExtension.swift */,
+				3A5695282099652F00789084 /* ImageViewExtension.swift */,
 			);
 			path = Utils;
 			sourceTree = "<group>";
@@ -199,6 +202,7 @@
 				3A5694F92099389D00789084 /* RedditListViewController.swift in Sources */,
 				3A56950D20993DFD00789084 /* TableViewDelegate.swift in Sources */,
 				3A56950E20993DFD00789084 /* TableViewDataSource.swift in Sources */,
+				3A5695292099652F00789084 /* ImageViewExtension.swift in Sources */,
 				3A5695152099453200789084 /* RedditModel.swift in Sources */,
 				3A56952220995FFE00789084 /* DateExtension.swift in Sources */,
 				3A5694F72099389C00789084 /* AppDelegate.swift in Sources */,
