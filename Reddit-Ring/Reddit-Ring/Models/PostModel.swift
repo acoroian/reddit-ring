@@ -18,11 +18,11 @@ class PostModel : NSObject, Codable, NSCoding {
     let thumbnailWidth : Int
     let thumbnailHeight : Int
     let numberOfComments : Int
-    
+
     private enum CodingKeys: String, CodingKey {
         case postId = "subreddit_id", title, author, date = "created_utc", url, thumbnailUrl = "thumbnail", thumbnailWidth = "thumbnail_width", thumbnailHeight = "thumbnail_height", numberOfComments = "num_comments"
     }
-    
+
     required init(from decoder: Decoder) throws {
         let container = try decoder.container(keyedBy: CodingKeys.self)
         postId = try container.decode(String.self, forKey: .postId)
@@ -30,7 +30,7 @@ class PostModel : NSObject, Codable, NSCoding {
         author = try container.decode(String.self, forKey: .author)
         let timeInterval = (try container.decode(Double.self, forKey: .date))
         date = Date(timeIntervalSince1970: timeInterval)
-        
+
         url = try container.decode(String.self, forKey: .url)
         thumbnailUrl = try container.decode(String.self, forKey: .thumbnailUrl)
         if let thumbnailWidth = try? container.decode(Int.self, forKey: .thumbnailWidth) {
@@ -39,10 +39,10 @@ class PostModel : NSObject, Codable, NSCoding {
         if let thumbnailHeight = try? container.decode(Int.self, forKey: .thumbnailHeight) {
             self.thumbnailHeight = thumbnailHeight
         } else { self.thumbnailHeight = 0 }
-        
+
         numberOfComments = try container.decode(Int.self, forKey: .numberOfComments)
     }
-    
+
     func encode(with aCoder: NSCoder) {
         aCoder.encode(postId, forKey: CodingKeys.postId.description)
         aCoder.encode(title, forKey: CodingKeys.title.description)
@@ -54,9 +54,9 @@ class PostModel : NSObject, Codable, NSCoding {
         aCoder.encode(thumbnailHeight, forKey: CodingKeys.thumbnailHeight.description)
         aCoder.encode(numberOfComments, forKey: CodingKeys.numberOfComments.description)
     }
-    
+
     required init?(coder aDecoder: NSCoder) {
-        
+
         postId = aDecoder.decodeObject(forKey: CodingKeys.postId.description) as? String ?? ""
         title = aDecoder.decodeObject(forKey: CodingKeys.title.description) as? String ?? ""
         author = aDecoder.decodeObject(forKey: CodingKeys.author.description) as? String ?? ""
