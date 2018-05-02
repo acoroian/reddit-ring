@@ -9,16 +9,27 @@
 import UIKit
 import WebKit
 
-class FullScreenImageViewController : UIViewController {
+class FullScreenImageViewController : UIViewController, WKNavigationDelegate {
     @IBOutlet weak var webView: WKWebView!
+    @IBOutlet weak var spinner: UIActivityIndicatorView!
     public var photoUrl = ""
 
     override func viewDidLoad() {
         super.viewDidLoad()
+
+        self.spinner.hidesWhenStopped = true
+        self.spinner.startAnimating()
+        
+        webView.navigationDelegate = self
         
         if let url = URL(string: photoUrl) {
             webView.load(URLRequest(url: url))
         }
+    }
+    
+    func webView(_ webView: WKWebView,
+                 didFinish navigation: WKNavigation!) {
+        self.spinner.stopAnimating()
     }
     
     @IBAction func save() {

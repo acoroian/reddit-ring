@@ -143,11 +143,16 @@
                                     <wkPreferences key="preferences"/>
                                 </wkWebViewConfiguration>
                             </wkWebView>
+                            <activityIndicatorView opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" style="gray" translatesAutoresizingMaskIntoConstraints="NO" id="mRn-tn-8YS">
+                                <rect key="frame" x="177" y="323.5" width="20" height="20"/>
+                            </activityIndicatorView>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <constraints>
+                            <constraint firstItem="mRn-tn-8YS" firstAttribute="centerX" secondItem="AfO-9A-h7f" secondAttribute="centerX" id="3HF-Ns-a6d"/>
                             <constraint firstItem="bxs-e5-sep" firstAttribute="leading" secondItem="g5a-9o-a1m" secondAttribute="leading" id="Cag-iY-QRR"/>
                             <constraint firstItem="g5a-9o-a1m" firstAttribute="bottom" secondItem="bxs-e5-sep" secondAttribute="bottom" id="ZPD-Ff-nhw"/>
+                            <constraint firstItem="mRn-tn-8YS" firstAttribute="centerY" secondItem="AfO-9A-h7f" secondAttribute="centerY" id="aRK-uW-AYb"/>
                             <constraint firstItem="g5a-9o-a1m" firstAttribute="trailing" secondItem="bxs-e5-sep" secondAttribute="trailing" id="kK4-Tu-JAJ"/>
                             <constraint firstItem="bxs-e5-sep" firstAttribute="top" secondItem="g5a-9o-a1m" secondAttribute="top" id="kma-f1-ccd"/>
                         </constraints>
@@ -155,6 +160,7 @@
                     </view>
                     <navigationItem key="navigationItem" title="Full Image" id="obw-qi-MRR"/>
                     <connections>
+                        <outlet property="spinner" destination="mRn-tn-8YS" id="9rf-np-nyl"/>
                         <outlet property="webView" destination="bxs-e5-sep" id="mol-Ts-hri"/>
                     </connections>
                 </viewController>
