@@ -31,6 +31,10 @@ class RedditModel : NSObject, Codable, NSCoding {
 }
 
 extension RedditModel : TableViewCompatible {
+    var uniqueIdentifier: String {
+        return data?.postId ?? ""
+    }
+    
     var reuseIdentifier: String {
         return "PostCellIdentifier"
     }

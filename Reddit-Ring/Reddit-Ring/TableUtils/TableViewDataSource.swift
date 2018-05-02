@@ -28,3 +28,21 @@ class TableViewDataSource: NSObject, UITableViewDataSource {
         return cell
     }
 }
+
+extension TableViewDataSource : UIDataSourceModelAssociation {
+    func modelIdentifierForElement(at idx: IndexPath, in view: UIView) -> String? {
+        return self.data[idx.section][idx.row].uniqueIdentifier
+    }
+    
+    func indexPathForElement(withModelIdentifier identifier: String, in view: UIView) -> IndexPath? {
+        for section in data {
+            for (index, item) in section.enumerated() {
+                if item.uniqueIdentifier == identifier {
+                    return IndexPath(row: index, section: 0)
+                }
+            }
+        }
+        
+        return IndexPath(row: 0, section: 0)
+    }
+}

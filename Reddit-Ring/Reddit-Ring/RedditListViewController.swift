@@ -66,23 +66,6 @@ class RedditListViewController: UITableViewController {
         super.decodeRestorableState(with: coder)
         viewModel.redditPosts = coder.decodeObject(forKey: "posts") as? [RedditModel] ?? []
         viewModel.nextDataId = coder.decodeObject(forKey: "nextDataId") as? String
-
         self.tableView.reloadData()
-    }
-}
-
-extension RedditListViewController : UIDataSourceModelAssociation {
-    func modelIdentifierForElement(at idx: IndexPath, in view: UIView) -> String? {
-       return self.viewModel.redditPosts[idx.row].data?.postId
-    }
-
-    func indexPathForElement(withModelIdentifier identifier: String, in view: UIView) -> IndexPath? {
-        let postsFiltered = self.viewModel.redditPosts.filter { $0.data?.postId == identifier }
-        if let filteredItem = postsFiltered.first {
-            let index = self.viewModel.redditPosts.index(of: filteredItem) ?? 0
-            return IndexPath(row: index, section: 0)
-        }
-
-        return IndexPath(row: 0, section: 0)
     }
 }

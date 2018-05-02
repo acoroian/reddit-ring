@@ -9,7 +9,7 @@
 import UIKit
 
 protocol TableViewCompatible {
-    
+    var uniqueIdentifier: String { get }
     var reuseIdentifier: String { get }
     func cellForTableView(tableView: UITableView, atIndexPath indexPath: IndexPath) -> UITableViewCell
     

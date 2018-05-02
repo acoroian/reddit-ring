@@ -145,6 +145,7 @@
 				3A5694EF2099389C00789084 /* Sources */,
 				3A5694F02099389C00789084 /* Frameworks */,
 				3A5694F12099389C00789084 /* Resources */,
+				3AE97546209A46D300A9826F /* ShellScript */,
 			);
 			buildRules = (
 			);
@@ -200,6 +201,22 @@
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXResourcesBuildPhase section */
+
+/* Begin PBXShellScriptBuildPhase section */
+		3AE97546209A46D300A9826F /* ShellScript */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "/usr/local/bin/carthage copy-frameworks";
+		};
+/* End PBXShellScriptBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
 		3A5694EF2099389C00789084 /* Sources */ = {
@@ -366,6 +383,10 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = W8X62TY9M3;
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(SRCROOT)",
+					"$(PROJECT_DIR)/Reddit-Ring",
+				);
 				INFOPLIST_FILE = "Reddit-Ring/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
@@ -384,6 +405,10 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = W8X62TY9M3;
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(SRCROOT)",
+					"$(PROJECT_DIR)/Reddit-Ring",
+				);
 				INFOPLIST_FILE = "Reddit-Ring/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
