@@ -10,15 +10,13 @@ import UIKit
 
 class TableViewDelegate: NSObject, UITableViewDelegate {
     var selectedCell : ((_ index : Int) -> Void)?
+    var shouldLoadMore : ((_ index : Int) -> Void)?
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         self.selectedCell?(indexPath.row)
     }
     
     func tableView(_ tableView: UITableView, willDisplay cell: UITableViewCell, forRowAt indexPath: IndexPath) {
-        
-//        if indexPath.row == data.count - 1 {
-//
-//        }
+        self.shouldLoadMore?(indexPath.row)
     }
 }

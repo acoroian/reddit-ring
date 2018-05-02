@@ -14,7 +14,7 @@ class RedditViewModel {
         case ConversionFailed = "ERROR: conversion from JSON failed"
     }
     
-    let sourceUrl = URL(string: "https://www.reddit.com/top.json")
+    let sourceUrlString = "https://www.reddit.com/top.json?after="
     
     var redditPosts : [RedditModel] = []
     var nextDataId : String?
@@ -22,12 +22,25 @@ class RedditViewModel {
     var dataUpdated : (() -> Void)?
     
     init() {
-        getReddit()
+        refreshData()
     }
     
-    func getReddit() {
+    func refreshData() {
+        self.nextDataId = ""
+        self.redditPosts = []
+        loadData()
+    }
+    
+    func shouldLoadMore(currentIndex: Int) {
+        if redditPosts.count - 1 == currentIndex {
+            loadData()
+        }
+    }
+    
+    func loadData() {
         UIApplication.shared.isNetworkActivityIndicatorVisible = true
         
+        let sourceUrl = URL(string: "\(sourceUrlString)\(nextDataId ?? "")")
         let request = URLRequest(url: sourceUrl!)
         
         URLSession.shared.dataTask(with: request, completionHandler: {(data, response, error) in
@@ -60,7 +73,7 @@ class RedditViewModel {
                     }
 
                     DispatchQueue.main.async {
-                        self.redditPosts = redditPosts
+                        self.redditPosts.append(contentsOf: redditPosts)
                         self.dataUpdated?()
                     }
                 } catch let error as JSONError {

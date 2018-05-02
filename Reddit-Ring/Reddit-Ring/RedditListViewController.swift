@@ -16,6 +16,10 @@ class RedditListViewController: UITableViewController {
         super.viewDidLoad()
         // Do any additional setup after loading the view, typically from a nib.
         
+        (self.tableView.delegate as! TableViewDelegate).shouldLoadMore = { index in
+            self.viewModel.shouldLoadMore(currentIndex: index)
+        }
+        
         viewModel.dataUpdated = {
             (self.tableView.dataSource as! TableViewDataSource).data = []
             (self.tableView.dataSource as! TableViewDataSource).data.append(self.viewModel.redditPosts)
