@@ -10,6 +10,7 @@ import UIKit
 
 class PostCell: UITableViewCell, Configurable {
     var model: RedditModel?
+    var cellImageSelected : ((_ index: Int) -> Void)?
     
     @IBOutlet weak var thumbnailWidth: NSLayoutConstraint!
     @IBOutlet weak var thumbnailHeight: NSLayoutConstraint!
@@ -19,6 +20,10 @@ class PostCell: UITableViewCell, Configurable {
     @IBOutlet weak var author : UILabel!
     @IBOutlet weak var date : UILabel!
     @IBOutlet weak var comments : UILabel!
+    
+    override func awakeFromNib() {
+        super.awakeFromNib()
+    }
     
     func configureWithModel(_ model: RedditModel) {
         self.model = model
@@ -30,8 +35,12 @@ class PostCell: UITableViewCell, Configurable {
         thumbnailImage.imageFromUrl(urlString: model.data.thumbnailUrl)
         thumbnailWidth.constant = CGFloat(model.data.thumbnailWidth)
         thumbnailHeight.constant = CGFloat(model.data.thumbnailHeight)
+        
+        let tapGesture = UITapGestureRecognizer(target: self, action: #selector(showFullScreenImage))
+        thumbnailImage.addGestureRecognizer(tapGesture)
     }
     
-    
-    
+    @objc func showFullScreenImage() {
+        cellImageSelected?(self.thumbnailImage.tag)
+    }
 }

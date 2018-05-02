@@ -24,6 +24,7 @@
 		3A5695292099652F00789084 /* ImageViewExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3A5695282099652F00789084 /* ImageViewExtension.swift */; };
 		3AE9753F20996D0A00A9826F /* ImageCache.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3AE9753E20996D0A00A9826F /* ImageCache.swift */; };
 		3AE9754120997B6F00A9826F /* FullScreenImageViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3AE9754020997B6F00A9826F /* FullScreenImageViewController.swift */; };
+		3AE975432099A32800A9826F /* ImageViewGif.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3AE975422099A32800A9826F /* ImageViewGif.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -46,6 +47,7 @@
 		3A5695282099652F00789084 /* ImageViewExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageViewExtension.swift; sourceTree = "<group>"; };
 		3AE9753E20996D0A00A9826F /* ImageCache.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageCache.swift; sourceTree = "<group>"; };
 		3AE9754020997B6F00A9826F /* FullScreenImageViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FullScreenImageViewController.swift; sourceTree = "<group>"; };
+		3AE975422099A32800A9826F /* ImageViewGif.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageViewGif.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -120,6 +122,7 @@
 				3A56952120995FFE00789084 /* DateExtension.swift */,
 				3A5695282099652F00789084 /* ImageViewExtension.swift */,
 				3AE9753E20996D0A00A9826F /* ImageCache.swift */,
+				3AE975422099A32800A9826F /* ImageViewGif.swift */,
 			);
 			path = Utils;
 			sourceTree = "<group>";
@@ -211,6 +214,7 @@
 				3A56950D20993DFD00789084 /* TableViewDelegate.swift in Sources */,
 				3A56950E20993DFD00789084 /* TableViewDataSource.swift in Sources */,
 				3A5695292099652F00789084 /* ImageViewExtension.swift in Sources */,
+				3AE975432099A32800A9826F /* ImageViewGif.swift in Sources */,
 				3A5695152099453200789084 /* RedditModel.swift in Sources */,
 				3A56952220995FFE00789084 /* DateExtension.swift in Sources */,
 				3A5694F72099389C00789084 /* AppDelegate.swift in Sources */,

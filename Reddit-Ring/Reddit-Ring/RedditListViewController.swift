@@ -16,12 +16,23 @@ class RedditListViewController: UITableViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        
         (self.tableView.delegate as! TableViewDelegate).shouldLoadMore = { index in
             self.viewModel.shouldLoadMore(currentIndex: index)
         }
         
         (self.tableView.delegate as! TableViewDelegate).selectedCell = { index in
             self.tableView.deselectRow(at: IndexPath(row: index, section: 0), animated: true)
+        }
+        
+        (self.tableView.dataSource as! TableViewDataSource).configure = { cell, indexPath in
+            if let cell = cell as? PostCell  {
+                cell.thumbnailImage.tag = indexPath.row
+                cell.cellImageSelected = { index in
+                    self.currentSelectedImage = self.viewModel.redditPosts[index].data.url
+                    self.performSegue(withIdentifier: "toPhoto", sender: self)
+                }
+            }
         }
         
         viewModel.dataUpdated = {
@@ -34,19 +45,6 @@ class RedditListViewController: UITableViewController {
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
-    }
-    
-    
-    @objc func tapEdit(recognizer: UITapGestureRecognizer)  {
-        if recognizer.state == UIGestureRecognizerState.ended {
-            
-            if let imageView = recognizer.view as? UIImageView {
-                if imageView.tag < 0 { return }
-                let cellModel = self.viewModel.redditPosts[imageView.tag]
-                self.currentSelectedImage = cellModel.data.url
-                self.performSegue(withIdentifier: "toPhoto", sender: self)
-            }
-        }
     }
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {

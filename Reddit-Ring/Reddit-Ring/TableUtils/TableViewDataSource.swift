@@ -11,7 +11,8 @@ import UIKit
 class TableViewDataSource: NSObject, UITableViewDataSource {
     
     var data = [[TableViewCompatible]]()
-    
+    var configure : ((_ cell: UITableViewCell, _ index: IndexPath) -> Void)?
+        
     func numberOfSections(in tableView: UITableView) -> Int {
         return data.count
     }
@@ -22,6 +23,8 @@ class TableViewDataSource: NSObject, UITableViewDataSource {
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let model = data[indexPath.section][indexPath.row]
-        return model.cellForTableView(tableView: tableView, atIndexPath: indexPath)
+        let cell = model.cellForTableView(tableView: tableView, atIndexPath: indexPath)
+        configure?(cell, indexPath)
+        return cell
     }
 }

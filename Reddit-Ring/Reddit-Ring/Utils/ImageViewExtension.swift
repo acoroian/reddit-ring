@@ -17,10 +17,14 @@ extension UIImageView {
             } else {
                 let request = URLRequest(url: url)
                 URLSession.shared.dataTask(with: request, completionHandler: {(data, response, error) in
-                    guard let data = data else { return }
+                    guard let data = data else {
+                        print(error?.localizedDescription)
+                        return
+                    }
                     
                     DispatchQueue.main.async {
                         self.image = UIImage(data: data)
+
                         guard let savedImage = self.image else { return }
                         ImageCache.shared.cache.setObject(savedImage, forKey: urlString as NSString)
                     }

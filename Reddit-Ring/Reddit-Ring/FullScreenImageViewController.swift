@@ -19,10 +19,6 @@ class FullScreenImageViewController : UIViewController {
         self.imageView.imageFromUrl(urlString: photoUrl)
     }
     
-    @IBAction func close() {
-        self.dismiss(animated: true, completion: nil)
-    }
-    
     @IBAction func save() {
         UIImageWriteToSavedPhotosAlbum(imageView.image!, self, #selector(image(_:didFinishSavingWithError:contextInfo:)), nil)
     }
